@@ -13,7 +13,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("V1", new OpenApiInfo { Title="Cards API", Version="v1" });
+    c.SwaggerDoc("V1", new OpenApiInfo
+    {
+        Title = "Cards API",
+        Version = "v1",
+        Description = "RESTFul Web Service that allows users to create and manage tasks in the form of cards.",
+        Contact = new OpenApiContact { Email = "mukhwami@gmail.com", Name = "Ombasa Geoffrey mukhwami", Url = new Uri("https://github.com/ombasaMukhwami") },
+         License = new OpenApiLicense {  Name="Card Api", Url= new Uri("https://github.com/ombasaMukhwami") }
+    });
 });
 
 
@@ -36,7 +43,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("swagger/v1/swagger.json", "CardsAPI v1");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "CardsAPI v1");
     });
 }
 
