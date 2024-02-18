@@ -2,7 +2,7 @@
 
 public interface IUnitOfWork: IDisposable
 {
-    ICardRepository Vehicles { get; }
+    ICardRepository Cards { get; }
+    IAppUserRepository Users { get; }
     Task<int> CommitAsync();
-    CardDbContext _dbContext { get; }
 }
